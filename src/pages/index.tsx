@@ -2,18 +2,13 @@ import { type NextPage } from "next";
 import Head from "next/head";
 import Link from "next/link";
 import { signIn, signOut, useSession } from "next-auth/react";
-import {RxHamburgerMenu} from "react-icons/rx/index"
-import {MdOutlineInventory} from "react-icons/md/index"
-import {TbReportMoney} from "react-icons/tb/index";
-import {BsBorderStyle} from "react-icons/bs/index"
-import {MdOutlineAccountCircle} from "react-icons/md/index"
+import NavBar from "../components/NavBar";
+import {BiSearch} from "react-icons/bi/index"
+import Image from "next/image";
 
-import { trpc } from "../utils/trpc";
-import { useState } from "react";
 
 const Home: NextPage = () => {
-  const hello = trpc.example.hello.useQuery({ text: "from tRPC" });
-  const [showOpt, setShowOpt] = useState<boolean>(false)
+  
 
   return (
     <>
@@ -23,35 +18,19 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className="min-h-screen bg-gradient-to-b from-[#411a1a] to-[#0a0a0a]">
-        <nav className="h-fit bg-slate-900 shadow-sm shadow-slate-700  px-5 text-2xl ">
-          <div className="flex justify-between items-center py-4">
-            <div className="text-2xl text-slate-300 font-semibold bg-[#411a1a] shadow-inner shadow-rose-900 px-2 py-1 rounded-md">
-              SockShop
-            </div>
-            <RxHamburgerMenu onClick={() => setShowOpt(!showOpt)} className="text-slate-100 active:text-slate-400" />
-
+        <NavBar />
+        <div className="mt-3">
+          <div className="search-sec flex p-2 items-center gap-5 relative">
+            <input type="text" className="w-[98%] rounded-sm p-2" placeholder="Search for product" />
+            <BiSearch className="absolute right-6 text-xl" />
           </div>
-          {showOpt && <div className="flex flex-col gap-2 pb-3">
-            <div className="border-b border-slate-800 pb-1 flex justify-between">
-              <p className="text-sm w-fit text-slate-200 hover:text-slate-400 active:text-slate-500">Inventory</p>
-              <MdOutlineInventory className="text-slate-200 active:text-slate-400" />
-            </div>
-            <div className="border-b border-slate-800 pb-1 flex justify-between">
-              <p className="text-sm text-slate-200 hover:text-slate-400 active:text-slate-500">Sales</p>
-              <TbReportMoney className="text-slate-200 active:text-slate-400"/>
+        </div>
 
-            </div>
-            <div className="border-b border-slate-800 pb-1 flex justify-between">
-              <p className="text-sm text-slate-200 hover:text-slate-400 active:text-slate-500">Orders</p>
-              <BsBorderStyle className="text-slate-200 active:text-slate-400" />
-            </div>
-            <div className="border-b border-slate-800 pb-1 flex justify-between">
-              <p className="text-sm text-slate-200 hover:text-slate-400 active:text-slate-500">Account</p>
-              <MdOutlineAccountCircle className="text-slate-200 active:text-slate-400" />
-            </div>
-            
-          </div>}
-        </nav>
+        <div className="product-container flex justify-center mt-5">
+          <div className="card bg-[#411a1a] shadow-md shadow-slate-900 w-[92%] rounded flex justify-center">
+            <Image src={"http://cdn.shopify.com/s/files/1/0015/2602/products/YellowSockMain_grande.png?v=1639085468"} alt={"prod-img"} width={250} height={200} />
+          </div>
+        </div>
         
       </main>
     </>

@@ -5,7 +5,6 @@ import {TbReportMoney} from "react-icons/tb/index";
 import {BsBorderStyle} from "react-icons/bs/index"
 import {MdOutlineAccountCircle} from "react-icons/md/index"
 
-import { trpc } from "../utils/trpc";
 import { useState } from "react";
 
 export default function NavBar() {
@@ -16,7 +15,7 @@ export default function NavBar() {
     <nav className="h-fit bg-slate-900 shadow-sm shadow-slate-700  px-5 text-2xl ">
           <div className="flex justify-between items-center py-4">
             <div className="text-2xl text-slate-300 font-semibold bg-[#411a1a] shadow-inner shadow-rose-900 px-2 py-1 rounded-md">
-              Socks 'N Bottoms
+              Socks &aposN Bottoms
             </div>
             <RxHamburgerMenu onClick={() => setShowOpt(!showOpt)} className="text-slate-100 active:text-slate-400" />
 

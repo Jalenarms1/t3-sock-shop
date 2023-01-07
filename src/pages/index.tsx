@@ -27,7 +27,7 @@ const Home: NextPage = () => {
         </div>
 
         <div className="product-container flex justify-center mt-5">
-          <div className="card bg-[#411a1a] shadow-md shadow-slate-900 w-[92%] rounded flex justify-center">
+          <div className="card bg-[#705b5b] shadow-md shadow-slate-900 w-[92%] rounded flex justify-center">
             <Image src={"http://cdn.shopify.com/s/files/1/0015/2602/products/YellowSockMain_grande.png?v=1639085468"} alt={"prod-img"} width={250} height={200} />
           </div>
         </div>
